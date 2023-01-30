@@ -2,11 +2,8 @@ import users from "./users.js"
 
 console.table(users)
 
-const getUsersWithGender = (users, gender) => {
+const getUsersWithGender = (users, gender) => users.filter(user => user.gender === gender).map(user => user.name); 
   
-  const filteredGenders = users.filter(user => user.gender === gender);
-  
-  return filteredGenders.map(gender => gender.name)
-};
+
 
 console.log(getUsersWithGender(users, 'male')); // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
