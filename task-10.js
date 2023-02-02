@@ -12,10 +12,12 @@ console.table(users);
 
 const getSortedUniqueSkills = users =>
   users
-    .reduce((acc, user) => [...acc, ...user.skills], [])
+    // .reduce((acc, user) => [...acc, ...user.skills], []) аналогічно
+    .flatMap(user => user.skills)
     .filter((skill, index, arr) => arr.indexOf(skill) === index)
     .sort();
 
 console.log(getSortedUniqueSkills(users));
+console.table(users);
 
 // [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
